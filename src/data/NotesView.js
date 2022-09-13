@@ -1,10 +1,11 @@
 export default class NotesView {
-constructor(root, { onNoteSelect, onNoteAdd, onNoteEdit, onNoteDelete } = {}) {
+constructor(root, theme__btn, { onNoteSelect, onNoteAdd, onNoteEdit, onNoteDelete } = {}) {
         this.root = root;
         this.onNoteSelect = onNoteSelect;
         this.onNoteAdd = onNoteAdd;
         this.onNoteEdit = onNoteEdit;
         this.onNoteDelete = onNoteDelete;
+        this.theme__btn = theme__btn;
         this.root.innerHTML = `
             <div class="notes__sidebar">
                 <button class="cssbuttons-io notes__add">
@@ -24,11 +25,16 @@ constructor(root, { onNoteSelect, onNoteAdd, onNoteEdit, onNoteDelete } = {}) {
         `;
 
         const btnAddNote = this.root.querySelector(".notes__add");
+        const switchbtn = this.theme__btn;
         const inpTitle = this.root.querySelector(".notes__title");
         const inpBody = this.root.querySelector(".notes__body");
 
-        btnAddNote.addEventListener("click", () => {
+        btnAddNote.addEventListener("change", () => {
             this.onNoteAdd();
         });
+
+        
+
     }
+
 }
