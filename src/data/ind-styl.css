@@ -8,7 +8,7 @@
   }
 
 body {
-    margin-top: 10em;
+    margin-top: 10vh;
     display: flex;
     text-align: center;
     color: white;
@@ -29,7 +29,7 @@ body {
 .logo {
     font-family: 'Varela Round', sans-serif;
     background: white;
-    -webkit-background-clip: text; 
+    -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;   
     font-size: 3em;
 
