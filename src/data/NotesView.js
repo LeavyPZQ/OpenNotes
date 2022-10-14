@@ -1,11 +1,10 @@
 export default class NotesView {
-    constructor(root, layoutbtn, { onNoteSelect, onNoteAdd, onNoteEdit, onNoteDelete } = {}) {
+    constructor(root, { onNoteSelected, onNoteAdd, onNoteEdit, onNoteDelete } = {}) {
             this.root = root;
-            this.onNoteSelect = onNoteSelect;
+            this.onNoteSelected = onNoteSelected;
             this.onNoteAdd = onNoteAdd;
             this.onNoteEdit = onNoteEdit;
             this.onNoteDelete = onNoteDelete;
-            this.layoutbtn = layoutbtn;
             this.root.innerHTML = `
                 <div class="notes__sidebar">
                     <button class="cssbuttons-io notes__add">
@@ -38,23 +37,19 @@ export default class NotesView {
                 inputField.addEventListener("blur", () => {
                     const updatedTitle = inpTitle.value.trim();
                     const updatedBody = inpBody.value.trim();
-
-                    this.onNoteEdit(updatedTitle, updatedBody);
                 });
             });
 
             console.log(this._createListItemHTML(300, "hello", "owen lutcht", new Date()));
             
-            //
+            //this.updateNotePreviewVisibility(false);
         }
     
 
     _createListItemHTML(id, title, body, updated) {
         const MAX_BODY_LENGTH = 60;
 
-        return `
-        
-        <div class="notes__list-item" data-note-id="${id}">
+        return `<div class="notes__list-item" data-note-id="${id}">
         <div class="notes__small-title">${title}</div>
         <div class="notes__small-body">
             ${body.substring(0, MAX_BODY_LENGTH)}
@@ -63,8 +58,7 @@ export default class NotesView {
         <div class="notes__small-updated">
             ${updated.toLocaleString(undefined, { dateStyle: "full", timeStyle: "short" })}
         </div>
-    </div>
-        `;
+        </div>`;
     }
 
     updateNoteList(notes) {
@@ -82,7 +76,7 @@ export default class NotesView {
 
         noteListContainer.querySelectorAll(".notes__list-item").forEach(noteListItem => {
             noteListItem.addEventListener("click", () => {
-                this.onNoteSelect(noteListItem.dataset.noteId);
+                this.onNoteSelected(noteListItem.dataset.noteId);
             });
 
             noteListItem.addEventListener("dblclick", () => {
@@ -93,5 +87,21 @@ export default class NotesView {
                 }
             });
         });
+    }
+
+    updateActiveNote(note) {
+        this.root.querySelector(".notes__title").value = note.title;
+        this.root.querySelector(".notes__body").value = note.body;
+
+        this.root.querySelectorAll(".notes__list-item").forEach(noteListItem => {
+            noteListItem.classList.remove("notes__list-item--selected");
+        })
+        
+        this.root.querySelector(`.notes__list-item[data-note-id="${note.id}"]`).classList.add("notes__list-item--selected");
+
+    }
+
+    updateNotePreviewVisibility(visible) {
+        this.root.querySelector(".notes__preview").style.visibility = visible ? "visible" : "hidden";
     }
 }

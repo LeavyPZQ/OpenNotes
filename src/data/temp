@@ -13,3 +13,28 @@
                 <input class="notes__title" type="text" placeholder="New Note...">
                 <textarea class="notes__body">Take Note...</textarea>
             </div>
+
+            const view = new NotesView(app, layoutbtn,{
+                onNoteAdd() {
+                    console.log("Note has been selected");
+                },
+            
+                onNoteEdit(newTitle, newBody) {
+                    console.log(newTitle)
+                    console.log(newBody)
+                },
+                onNoteSelect(id) {
+                    console.log("Note Selected:" + id);
+                },
+                onNoteDelete(id) {
+                    console.log("Note Deleted:" + id);
+                },
+            });
+            
+            const notes = NotesAPI.getAllNotes();
+            
+            view.updateNoteList(notes);
+            view.updateActiveNote(notes[0]);
+
+
+            this.onNoteEdit(updatedTitle, updatedBody);

@@ -1,32 +1,17 @@
 import NotesView from "./NotesView.js";
 import NotesAPI from "./NotesAPI.js";
+import App from "./App.js";
 const theme__btn = document.getElementById("theme");
 const tooglelayout = document.getElementById("layoutcheckbox");
 const layouticon = document.getElementById("layouticon");
-const app =  document.getElementById("app");
+const root =  document.getElementById("app");
+const app = new App(root);
 const body = document.getElementById("body");
 const layout = document.getElementById("layout");
 const layoutbtn =  document.getElementById("layoutbtn").innerHTML;
 
-const view = new NotesView(app, layoutbtn,{
-    onNoteAdd() {
-        console.log("Note has been selected");
-    },
 
-    onNoteEdit(newTitle, newBody) {
-        console.log(newTitle)
-        console.log(newBody)
-    },
-    onNoteSelect(id) {
-        console.log("Note Selected:" + id);
-    },
-    onNoteDelete(id) {
-        console.log("Note Deleted:" + id);
-    },
-});
-
-view.updateNoteList(NotesAPI.getAllNotes());
-
+ 
 
 
 
