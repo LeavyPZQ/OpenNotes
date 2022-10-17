@@ -6,24 +6,34 @@
         <link rel="stylesheet" href="data/main-styl.css">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+       
     </head>
     <body class="white" id="body">
-    <div class="notes" id="app">
-    <!-- <div class="notes__sidebar">
-            <div class="notes__list">
-                <div class="notes__list-item notes__list-item--selected">
-                    <div class="notes__small-title">Lecture Notes</div>
-                    <div class="notes__small-body">I learnt nothing today.</div>
-                    <div class="notes__small-updated">Thursday 3:30pm</div>
-                </div>
-            </div>
-        </div>
-        <div class="notes__preview">
-            <input class="notes__title" type="text" placeholder="Enter a title...">
-            <textarea class="notes__body" placeholder="Write your notes!"></textarea>
-        </div> -->
-    </div>
         <script src="data/main.js" type="module"></script>
+    <div class="extended" id="layout">
+        <div class="notes" id="app">
+            <!-- <div class="notes__sidebar">
+                    <div class="notes__list">
+                        <div class="notes__list-item notes__list-item--selected">
+                            <div class="notes__small-title">Lecture Notes</div>
+                            <div class="notes__small-body">I learnt nothing today.</div>
+                            <div class="notes__small-updated">Thursday 3:30pm</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="notes__preview">
+                    <input class="notes__title" type="text" placeholder="Enter a title...">
+                    <textarea class="notes__body" placeholder="Write your notes!"></textarea>
+                </div> 
+                -->  
+        </div>
+        <label class="layoutbtn" id="layoutbtn">
+            <input type="checkbox" class="layout__check" id="layoutcheckbox">
+            <span><i class="right" id="layouticon"><</i></span>
+        </label>
+    </div>
+
     </body>
     <footer>
         <button class="cssbuttons-io noDisp">
@@ -49,5 +59,6 @@
             <input type="checkbox">
             <span class="slider"></span>
         </label>
+
     </footer>
 </html>

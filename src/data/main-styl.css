@@ -1,13 +1,19 @@
 @import url('https://fonts.googleapis.com/css2?family=Ubuntu&family=Varela+Round&display=swap');
 
+* {
+    margin: 0;
+    padding: 0;
+}
+
 html,
 body {
     font-family: 'Ubuntu', sans-serif;
     height: 100%;
     margin: 0;
 }
-
+/*Theme changes*/
 .white {
+    transition: 100ms ease-in-out;
     background-color: #fff;
     transition: 100ms linear;
 }
@@ -15,13 +21,22 @@ body {
     transition: 100ms linear;
 }
 .white textarea {
+    transition: 100ms ease-in-out;
     background-color: #fff;
     color: #121212;
     transition: 100ms linear;
 }
 
+.white input {
+    transition: 100ms ease-in-out;
+}
+
 .white .notes__sidebar {
+<<<<<<< HEAD
     transition: 200ms linear;
+=======
+    transition: 100ms ease-in-out;
+>>>>>>> 232d5c73e8e8283e7f86ff5cffa8a472a2e0d915
     background-color: #fff;
     border-radius: 50px;
     background: #e0e0e0;
@@ -32,26 +47,42 @@ body {
 }
 
 .dark {
+    transition: 100ms ease-in-out;
     background-color: #121212;
     color: #dddddd;
     transition: 100ms linear;
 }
 
 .dark input, textarea {
+    transition: 100ms ease-in-out;
     background-color: #121212;
     color:#dddddd;
     transition: 100ms linear;
 }
 
 .dark .notes__sidebar {
+<<<<<<< HEAD
     transition: 100ms linear;
+=======
+    transition: 100ms ease-in-out;
+>>>>>>> 232d5c73e8e8283e7f86ff5cffa8a472a2e0d915
     background-color: #101010;
     border-radius: 0 30px 30px 0;
     background: linear-gradient(145deg, #0e0e0e, #111111);
     box-shadow:  8px 8px 16px #090909,
+<<<<<<< HEAD
                  -8px -8px 16px #171717;
 
+=======
+             -8px -8px 16px #171717;
+>>>>>>> 232d5c73e8e8283e7f86ff5cffa8a472a2e0d915
 }
+
+/**/
+
+
+
+/*Footer + buttons*/
 
 footer {
     position: fixed;
@@ -68,6 +99,64 @@ footer button {
     padding: 0.7em 1em;
 }
 
+.sidebar__wrapper {
+    height: 100%;
+    display: flex;
+    flex-direction: row;
+}
+
+/*Layout toogle*/
+
+.right {
+    position: relative;
+    font-family: Arial, Helvetica, sans-serif;
+    display: inline-block;
+    transition: 100ms ease-in-out;
+    transform: rotate(180deg);
+    font-size: 2em;
+    margin-top: -0.5em;
+}
+
+.left {
+    position: relative;
+    font-family: Arial, Helvetica, sans-serif;
+    display: inline-block;
+    transition: 100ms ease-in-out;
+    transform: rotate(0deg);
+    font-size: 2em;
+    margin-top: -1em;
+    margin-left: -1.5em;
+}
+
+
+
+.layout__check {
+    display: none;
+}
+
+.layoutbtn {
+    align-items: center;
+    vertical-align: middle;
+    display: inline-block;
+    padding: 3px;
+    vertical-align: middle;
+    display: flex;
+    width: 2vw;
+    margin-left: 24vw;
+    margin-top: -50vh;
+}
+
+.extended {
+    height: 100%;
+    transition: 100ms ease-in-out;
+}
+.compact {
+    height: 100%;
+    margin-left: -23vw;
+    transition: 100ms ease-in-out;
+}
+
+
 /* Notes Body */
 .notes {
     display: flex;
@@ -78,15 +167,18 @@ footer button {
     font-family: sans-serif;
 }
 
+
 .notes__sidebar {
+    position: fixe;
     border: none;
     border-radius: 0 30px 30px 0;
     background-color: #101010;
     flex-shrink: 0;
     overflow-y: auto;
     padding: 1em;
-    width: 300px;
+    width: 20vw;
 }
+
 
 .notes__sidebar button {
     width: 100%;
@@ -147,6 +239,7 @@ footer button {
     line-height: 1.5;
     margin-top: 2em;
     resize: none;
+
 }
 
 /* From uiverse.io by @adamgiebl */
@@ -245,8 +338,8 @@ footer button {
    .cssbuttons-io::before {
     content: "";
     background: #000;
-    width: 120%;
-    left: -10%;
+    width: 140%;
+    left: -15%;
     transform: skew(30deg);
     transition: transform 0.4s cubic-bezier(0.3, 1, 0.8, 1);
    }
@@ -293,7 +386,7 @@ footer button {
     left: 0;
     right: 0;
     bottom: 0;
-    background-color: #f4f4f5;
+    background-color: #cbcbf5;
     transition: .4s;
     border-radius: 30px;
   }
